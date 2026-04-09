@@ -1,18 +1,36 @@
 
 body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    max-width: 800px;
-    margin: auto;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f4f7fb;
 }
-h1, h2 {
-    color: #222;
+
+/* FULL WIDTH HEADER */
+header {
+  width: 100%;
+  background: linear-gradient(135deg, #ffd400, #ffb300);
+  padding: 40px 0;
 }
-a {
-    color: #0077cc;
+
+/* CENTER HEADER CONTENT */
+.header-content {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
 }
-footer {
-    margin-top: 40px;
-    font-size: 0.9em;
-    color: #777;
+
+/* CENTER MAIN CONTENT */
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* CARD */
+.card {
+  background: white;
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
