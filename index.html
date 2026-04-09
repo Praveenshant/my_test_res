@@ -1,128 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praveen SB | Data Engineer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background-color: #f4f6f8;
-            color: #333;
-        }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-        }
-        h1, h2 {
-            color: #2c3e50;
-        }
-        .section {
-            margin-bottom: 25px;
-        }
-        .contact {
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        .company {
-            font-weight: bold;
-            color: #34495e;
-        }
-        .date {
-            float: right;
-            color: gray;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Praveen SB| Data Engineer</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: linear-gradient(to right, #eef2f3, #dfe9f3);
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  color: #2c3e50;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  margin: 15px 0;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h2 {
+  margin: 0;
+  color: #34495e;
+}
+
+.card p {
+  color: #555;
+}
+
+.skills span {
+  display: inline-block;
+  background: #3498db;
+  color: white;
+  padding: 6px 12px;
+  margin: 5px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+</style>
 </head>
+
 <body>
-<div class="container">
 
-    <h1>Praveen</h1>
-    <div class="contact">
-        📧 praveensb205@gmail.com <br>
-        📱 7418423505
-    </div>
+<h1 class="title">Praveen SB- Data Engineer</h1>
 
-    <div class="section">
-        <h2>Professional Summary</h2>
-        <p>
-            Data Engineer with 4+ years of experience in building scalable data pipelines and analytics solutions using 
-            Snowflake, DBT, AWS, and SQL. Strong expertise in ETL/ELT processes, data modeling, and performance optimization.
-            Experienced in delivering business insights through Power BI dashboards and handling large-scale data systems.
-        </p>
-    </div>
+<div class="container" id="content"></div>
 
-    <div class="section">
-        <h2>Technical Skills</h2>
-        <ul>
-            <li><b>Cloud:</b> AWS (S3, Glue)</li>
-            <li><b>Data Warehouse:</b> Snowflake</li>
-            <li><b>ETL Tools:</b> DBT, AWS Glue</li>
-            <li><b>Orchestration:</b> Apache Airflow</li>
-            <li><b>Languages:</b> SQL, Python, PySpark (Basics)</li>
-            <li><b>Visualization:</b> Power BI</li>
-            <li><b>Database:</b> PostgreSQL</li>
-        </ul>
-    </div>
+<script>
+// Embedded CSV data
+const csvData = `section,title,subtitle,description
+profile,Praveen SB,Data Engineer,4+ years experience in Snowflake DBT AWS SQL
+experience,Galaxy Data Solutions Pvt Ltd,Qatar Insurance Group (Sep 2024 - Apr 2026),Built scalable pipelines using Snowflake DBT and optimized ELT workflows
+experience,Infosys,YOU Broadband (Jun 2022 - Sep 2024),Developed pipelines using Snowflake Airflow AWS and built Power BI dashboards
+skills,Technical Skills,,Snowflake|DBT|AWS|Airflow|SQL|Python|Power BI|PostgreSQL
+contact,Email,,praveensb205@gmail.com
+contact,Phone,,7418423505`;
 
-    <div class="section">
-        <h2>Professional Experience</h2>
+// Convert CSV → UI
+const rows = csvData.split('\n').slice(1);
+const container = document.getElementById('content');
 
-        <p class="company">
-            Data Engineer – Galaxy Data Solutions Pvt Ltd 
-            <span class="date">Sep 2024 – Apr 2026</span>
-        </p>
-        <p><b>Client:</b> Qatar Insurance Group</p>
-        <ul>
-            <li>Designed and developed scalable data pipelines using Snowflake, DBT, and SQL.</li>
-            <li>Built ELT workflows for transforming raw insurance data into analytics-ready datasets.</li>
-            <li>Implemented data models (staging, intermediate, marts) following best practices.</li>
-            <li>Optimized Snowflake performance using clustering, caching, and query tuning.</li>
-            <li>Ensured data quality using DBT tests, documentation, and CI/CD pipelines.</li>
-            <li>Worked with business teams to define KPIs and reporting datasets.</li>
-        </ul>
+rows.forEach(row => {
+  const [section, title, subtitle, description] = row.split(',');
 
-        <p class="company">
-            Data Engineer – Infosys
-            <span class="date">Jun 2022 – Sep 2024</span>
-        </p>
-        <p><b>Client:</b> YOU Broadband, Hyderabad</p>
-        <ul>
-            <li>Developed and maintained batch and real-time data pipelines using Snowflake and DBT.</li>
-            <li>Integrated AWS S3, Snowpipe, and Airflow for automated data ingestion and orchestration.</li>
-            <li>Built modular DBT models including joins, aggregations, and SCD Type 2 logic.</li>
-            <li>Designed optimized Snowflake tables using partitioning and clustering.</li>
-            <li>Created Power BI dashboards for business insights and performance tracking.</li>
-            <li>Implemented role-based access control and data security policies.</li>
-        </ul>
+  let card = document.createElement('div');
+  card.className = 'card';
 
-        <p><b>Key Achievement:</b> Reduced pipeline processing time by 30% through optimization.</p>
-    </div>
+  if (section === 'skills') {
+    let skills = description.split('|')
+      .map(skill => `<span>${skill}</span>`)
+      .join('');
 
-    <div class="section">
-        <h2>Project Workflow</h2>
-        <ul>
-            <li>Data Sources: PostgreSQL, CSV, APIs</li>
-            <li>Ingestion: AWS S3, Snowpipe, Glue Jobs</li>
-            <li>Transformation: SQL, DBT, Snowpark</li>
-            <li>Orchestration: Apache Airflow</li>
-            <li>Visualization: Power BI dashboards</li>
-        </ul>
-    </div>
+    card.innerHTML = `<h2>${title}</h2><div class="skills">${skills}</div>`;
+  } else {
+    card.innerHTML = `
+      <h2>${title}</h2>
+      <p>${subtitle || ''}</p>
+      <p>${description}</p>
+    `;
+  }
 
-    <div class="section">
-        <h2>Education</h2>
-        <p>Bachelor of Engineering (Computer Science)</p>
-    </div>
+  container.appendChild(card);
+});
+</script>
 
-</div>
 </body>
 </html>
